@@ -1,11 +1,10 @@
-import '@aws-cdk/assert/jest';
-import { App } from '@aws-cdk/core';
+import { App, assertions } from 'aws-cdk-lib';
 import { KeycloakStack } from '../src/stack';
 
 test('Snapshot', () => {
   const app = new App();
   const stack = new KeycloakStack(app, 'test', { fromExistingVPC: true });
-
-  expect(stack).not.toHaveResource('AWS::S3::Bucket');
-  expect(app.synth().getStackArtifact(stack.artifactId).template).toMatchSnapshot();
+  const t = assertions.Template.fromStack(stack);
+  t.resourceCountIs('AWS::S3::Bucket', 0);
+  expect(t).toMatchSnapshot();
 });
