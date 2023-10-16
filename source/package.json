@@ -35,10 +35,9 @@
     "typescript": "4.9.5"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.100.0",
-    "constructs": "^10.0.5",
-    "cdk-bootstrapless-synthesizer": "^2.3.2",
-    "cdk-keycloak": "2.8.1"
+    "aws-cdk-lib": "2.100.0",
+    "constructs": "10.0.5",
+    "cdk-bootstrapless-synthesizer": "2.3.2"
   },
   "bundledDependencies": [],
   "license": "Apache-2.0",

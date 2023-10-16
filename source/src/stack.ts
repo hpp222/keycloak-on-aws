@@ -2,6 +2,7 @@ import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Stack, StackProps, CfnParameter, CfnParameterProps, Fn, Aws, Duration,} from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { KeyCloak, KeycloakVersion } from 'cdk-keycloak';
+//import {  aws_ecs as ecs,} from 'aws-cdk-lib';
 
 export class SolutionStack extends Stack {
   private _paramGroup: { [grpname: string]: CfnParameter[]} = {}
@@ -32,12 +33,13 @@ export class SolutionStack extends Stack {
 }
 
 interface KeycloakStackProps extends StackProps {
-  readonly auroraServerless?: boolean;
+  readonly auroraServerlessV2?: boolean;
   readonly fromExistingVPC?: boolean;
 }
 
 interface KeycloakSettings {
   certificateArn: string;
+  hostname: string;
   vpc?: ec2.IVpc;
   publicSubnets?: ec2.SubnetSelection;
   privateSubnets?: ec2.SubnetSelection;
@@ -46,12 +48,12 @@ interface KeycloakSettings {
 }
 
 export class KeycloakStack extends SolutionStack {
-  private _keycloakSettings: KeycloakSettings = { certificateArn: '' };
+  private _keycloakSettings: KeycloakSettings = { certificateArn: '', hostname: '' };
 
   constructor(scope: Construct, id: string, props: KeycloakStackProps = {}) {
     super(scope, id, props);
 
-    const dbMsg = props.auroraServerless ? 'using aurora serverless' : 'rds mysql';
+    const dbMsg = props.auroraServerlessV2 ? 'using aurora serverless v2' : 'rds mysql';
     const vpcMsg = props.fromExistingVPC ? 'existing vpc' : 'new vpc';
 
     this.setDescription(`(SO8021) - Deploy keycloak ${dbMsg} with ${vpcMsg}. template version: ${process.env.VERSION}`);
@@ -65,8 +67,18 @@ export class KeycloakStack extends SolutionStack {
     this.addGroupParam({ 'Application Load Balancer Settings': [certificateArnParam] });
 
     this._keycloakSettings.certificateArn = certificateArnParam.valueAsString;
+    
+    const hostnameParam = this.makeParam('Hostname', {
+      type: 'String',
+      description: 'Hostname for Keycloak server',
+      minLength: 5,
+    });
 
-    if (!props.auroraServerless) {
+    this.addGroupParam({ 'Keycloak Hostname Settings': [hostnameParam] });
+
+    this._keycloakSettings.hostname = hostnameParam.valueAsString;
+
+    if (!props.auroraServerlessV2) {
       const databaseInstanceType = this.makeParam('DatabaseInstanceType', {
         type: 'String',
         description: 'Instance type to be used for the core instances',
@@ -147,7 +159,7 @@ export class KeycloakStack extends SolutionStack {
       privateSubnets: this._keycloakSettings.privateSubnets,
       databaseSubnets: this._keycloakSettings.databaseSubnets,
       certificateArn: this._keycloakSettings.certificateArn,
-      auroraServerless: props.auroraServerless,
+      auroraServerlessV2: props.auroraServerlessV2,
       databaseInstanceType: this._keycloakSettings.databaseInstanceType,
       stickinessCookieDuration: Duration.days(7),
       nodeCount: minContainersParam.valueAsNumber,
@@ -159,13 +171,22 @@ export class KeycloakStack extends SolutionStack {
       env: {
         JAVA_OPTS: javaOptsParam.valueAsString,
       },
-      keycloakVersion: KeycloakVersion.of('16.1.1'),
+      keycloakVersion: KeycloakVersion.of('22.0.4'),
+      hostname: this._keycloakSettings.hostname,
+      //containerImage: ecs.ContainerImage.fromRegistry("123456789101.dkr.ecr.cn-north-1.amazonaws.com.cn/keycloak:22.0.4"),
     });
   }
 
 }
 
 const INSTANCE_TYPES = [
+'r6g.large',
+'r6g.xlarge',
+'r6g.2xlarge',
+'r6g.4xlarge',
+'r6g.8xlarge',
+'r6g.12xlarge',
+'r6g.16xlarge',
 'r5.large',
 'r5.xlarge',
 'r5.2xlarge',

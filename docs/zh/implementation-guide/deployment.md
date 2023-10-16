@@ -106,14 +106,15 @@
 6. 在**指定堆栈详细信息**部分执行以下操作：
     1. **堆栈名称**: 输入堆栈名称, 例如 *KeycloakOnAWS* 。
     2. **CertificateArn**: 输入<a id="step-1-create-acm-certificate">步骤 1. 创建 ACM 证书</a>中记录的 **ARN**，例如 *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272*。
-    3. **VpcId**: 选择现有的VPC 。
-    4. **PubSubnets**: 选择用于部署ALB的公有子网。
-    5. **PrivSubnets**: 选择用于部署ECS的私有子网。
-    6. **DBSubnets**: 选择用于部署数据库的私有子网。
-    7. **MinContainers**: ECS容器的最小数量，默认值是2。
-    8. **MaxContainers**: ECS容器的最大数量，默认值是10。
-    9. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
-    10. **JavaOpts**: JAVA_OPTS 参数。
+    3. **Hostname**: 输入您的 Keycloak 的域名。
+    4. **VpcId**: 选择现有的VPC 。
+    5. **PubSubnets**: 选择用于部署ALB的公有子网。
+    6. **PrivSubnets**: 选择用于部署ECS的私有子网。
+    7. **DBSubnets**: 选择用于部署数据库的私有子网。
+    8. **MinContainers**: ECS容器的最小数量，默认值是2。
+    9. **MaxContainers**: ECS容器的最大数量，默认值是10。
+    10. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
+    11. **JavaOpts**: JAVA_OPTS 参数。
 
 7. 选择**下一步**。
 
@@ -143,10 +144,11 @@
 6. 在**指定堆栈详细信息**部分执行以下操作：
     1. **堆栈名称**: 输入堆栈名称, 例如 *KeycloakOnAWS* 。
     2. **CertificateArn**: 输入 <a id="step-1-create-acm-certificate">步骤 1. 创建 ACM 证书</a> 中记录的 **ARN**，例如 *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272*。
-    3. **MinContainers**: ECS容器的最小数量，默认值是2。
-    4. **MaxContainers**: ECS容器的最大数量，默认值是10。
-    5. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
-    6. **JavaOpts**: JAVA_OPTS 参数。
+    3. **Hostname**: 输入您的 Keycloak 的域名。
+    4. **MinContainers**: ECS容器的最小数量，默认值是2。
+    5. **MaxContainers**: ECS容器的最大数量，默认值是10。
+    6. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
+    7. **JavaOpts**: JAVA_OPTS 参数。
 
 7. 选择**下一步**。
 
@@ -176,15 +178,16 @@
 6. 在**指定堆栈详细信息**部分执行以下操作：
     1. **堆栈名称**: 输入堆栈名称, 例如 *KeycloakOnAWS* 。
     2. **CertificateArn**: 输入 <a id="step-1-create-acm-certificate">步骤 1. 创建 ACM 证书</a> 中记录的 **ARN**，例如 *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272*。
-    3. **DatabaseInstanceType**: 选择数据库实例类型。
-    4. **VpcId**: 选择现有的VPC 。
-    5. **PubSubnets**: 选择用于部署ALB的公有子网。
-    6. **PrivSubnets**: 选择用于部署ECS的私有子网。
-    7. **DBSubnets**: 选择用于部署数据库的私有子网。
-    8. **MinContainers**: ECS容器的最小数量，默认值是2。
-    9. **MaxContainers**: ECS容器的最大数量，默认值是10。
-    10. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
-    11. **JavaOpts**: JAVA_OPTS 参数。
+    3. **Hostname**: 输入您的 Keycloak 的域名。
+    4. **DatabaseInstanceType**: 选择数据库实例类型。
+    5. **VpcId**: 选择现有的VPC 。
+    6. **PubSubnets**: 选择用于部署ALB的公有子网。
+    7. **PrivSubnets**: 选择用于部署ECS的私有子网。
+    8. **DBSubnets**: 选择用于部署数据库的私有子网。
+    9. **MinContainers**: ECS容器的最小数量，默认值是2。
+    10. **MaxContainers**: ECS容器的最大数量，默认值是10。
+    11. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
+    12. **JavaOpts**: JAVA_OPTS 参数。
 
 7. 选择**下一步**。
 
@@ -214,11 +217,12 @@
 6. 在**指定堆栈详细信息**部分执行以下操作：
     1. **堆栈名称**: 输入堆栈名称, 例如 *KeycloakOnAWS* 。
     2. **CertificateArn**: 输入 <a id="step-1-create-acm-certificate">步骤 1. 创建 ACM 证书</a> 中记录的 **ARN**，例如 *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272*。
-    3. **DatabaseInstanceType**: 选择数据库实例类型。
-    4. **MinContainers**: ECS容器的最小数量，默认值是2。
-    5. **MaxContainers**: ECS容器的最大数量，默认值是10。
-    6. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
-    7. **JavaOpts**: JAVA_OPTS 参数。
+    3. **Hostname**: 输入您的 Keycloak 的域名。
+    4. **DatabaseInstanceType**: 选择数据库实例类型。
+    5. **MinContainers**: ECS容器的最小数量，默认值是2。
+    6. **MaxContainers**: ECS容器的最大数量，默认值是10。
+    7. **AutoScalingTargetCpuUtilization**: 弹性伸缩的CPU利用率百分比，默认值是75，最大值是100。
+    8. **JavaOpts**: JAVA_OPTS 参数。
 
 7. 选择**下一步**。
 
@@ -301,7 +305,6 @@
 [Keycloak aurora serverless from new VPC template]: https://aws-gcr-solutions.s3.cn-north-1.amazonaws.com.cn/keycloakonaws/latest/keycloak-aurora-serverless-from-new-vpc.template
 [Keycloak from existing VPC template]: https://aws-gcr-solutions.s3.cn-north-1.amazonaws.com.cn/keycloakonaws/latest/keycloak-from-existing-vpc.template
 [Keycloak from new VPC template]: https://aws-gcr-solutions.s3.cn-north-1.amazonaws.com.cn/keycloakonaws/latest/keycloak-from-new-vpc.template
-
 
 
 

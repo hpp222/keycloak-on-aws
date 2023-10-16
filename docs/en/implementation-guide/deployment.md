@@ -107,14 +107,15 @@ You have 4 different options to launch the stack.
 6. On the **Step 2 Specify stack details** section, do the following:
     1. **Stack name**: A stack name, such as *KeycloakOnAWS*. 
     2. **CertificateArn**: Enter the **ARN** recorded in [Step 1. Create ACM certificate](#step-1-create-acm-certificate), such as *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272*.
-    3. **VpcId**: Select from existing VPCs.
-    4. **PubSubnets**: Select public subnets for ALB deployment.
-    5. **PrivSubnets**: Select the private subnet for the ECS Task.
-    6. **DBSubnets**: Select the private subnet for the database.
-    7. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
-    8. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
-    9. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
-    10. **JavaOpts**: JAVA_OPTS environment variable.
+    3. **Hostname**: Enter hostname for your Keycloak server.
+    4. **VpcId**: Select from existing VPCs.
+    5. **PubSubnets**: Select public subnets for ALB deployment.
+    6. **PrivSubnets**: Select the private subnet for the ECS Task.
+    7. **DBSubnets**: Select the private subnet for the database.
+    8. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
+    9. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
+    10. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
+    11. **JavaOpts**: JAVA_OPTS environment variable.
 
 7. Choose **Next**.
 
@@ -144,10 +145,11 @@ You have 4 different options to launch the stack.
 6. On the **Step 2 Specify stack details** section, do the following:
     1. **Stack name**: A stack name, such as *KeycloakOnAWS*. 
     2. **CertificateArn**: Enter the **ARN** recorded in [Step 1. Create ACM certificate](#step-1-create-acm-certificate), such as *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272*.
-    3. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
-    4. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
-    5. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
-    6. **JavaOpts**: JAVA_OPTS environment variable.
+    3. **Hostname**: Enter hostname for your Keycloak server.
+    4. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
+    5. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
+    6. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
+    7. **JavaOpts**: JAVA_OPTS environment variable.
 
 7. Choose **Next**.
 
@@ -177,15 +179,16 @@ You have 4 different options to launch the stack.
 6. On the **Step 2 Specify stack details** section, do the following:
     1. **Stack name**: A stack name, such as *KeycloakOnAWS*. 
     2. **CertificateArn**: Enter the **ARN** recorded in [Step 1. Create ACM certificate](#step-1-create-acm-certificate), such as *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272*.
-    3. **DatabaseInstanceType**: Select the RDS instance type.
-    4. **VpcId**: Select from existing VPCs.
-    5. **PubSubnets**: Select public subnets for ALB deployment.
-    6. **PrivSubnets**: Select the private subnet for the ECS Task.
-    7. **DBSubnets**: Select the private subnet for the RDS database.
-    8. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
-    9. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
-    10. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
-    11. **JavaOpts**: JAVA_OPTS environment variable.
+    3. **Hostname**: Enter hostname for your Keycloak server.
+    4. **DatabaseInstanceType**: Select the RDS instance type.
+    5. **VpcId**: Select from existing VPCs.
+    6. **PubSubnets**: Select public subnets for ALB deployment.
+    7. **PrivSubnets**: Select the private subnet for the ECS Task.
+    8. **DBSubnets**: Select the private subnet for the RDS database.
+    9. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
+    10. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
+    11. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
+    12. **JavaOpts**: JAVA_OPTS environment variable.
 
 7. Choose **Next**.
 
@@ -215,11 +218,12 @@ You have 4 different options to launch the stack.
 6. On the **Step 2 Specify stack details** section, do the following:
     1. **Stack name**: A stack name, such as *KeycloakOnAWS*. 
     2. **CertificateArn**: Enter the **ARN** recorded in [Step 1. Create ACM certificate](#step-1-create-acm-certificate), such as *arn:aws:acm:us-west-2:1436237113227:certificate/571518b3-123b-4502-1ec3-3t2sae704272`*.
-    3. **DatabaseInstanceType**: Select the RDS instance type.
-    4. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
-    5. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
-    6. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
-    7. **JavaOpts**: JAVA_OPTS environment variable.
+    3. **Hostname**: Enter hostname for your Keycloak server.
+    4. **DatabaseInstanceType**: Select the RDS instance type.
+    5. **MinContainers**: Customize the minimum number of containers for the ECS, with a minimum value of 2.
+    6. **MaxContainers**: Customize the maximum number of containers for the ECS, with a maximum value of 10.
+    7. **AutoScalingTargetCpuUtilization**: The percentage of resource utilization that is ensured to be no higher, maximum 100.
+    8. **JavaOpts**: JAVA_OPTS environment variable.
 
 7. Choose **Next**.
 
@@ -305,4 +309,3 @@ You have 4 different options to launch the stack.
 [Keycloak aurora serverless from new VPC template]: https://aws-gcr-solutions.s3.cn-north-1.amazonaws.com.cn/keycloakonaws/latest/keycloak-aurora-serverless-from-new-vpc.template
 [Keycloak from existing VPC template]: https://aws-gcr-solutions.s3.cn-north-1.amazonaws.com.cn/keycloakonaws/latest/keycloak-from-existing-vpc.template
 [Keycloak from new VPC template]: https://aws-gcr-solutions.s3.cn-north-1.amazonaws.com.cn/keycloakonaws/latest/keycloak-from-new-vpc.template
-
