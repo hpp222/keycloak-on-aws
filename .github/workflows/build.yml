@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "14"
+          node-version: "16"
       - name: Build
         run: ./deployment/build-s3-dist.sh dist-bucket solution-name latest
 
@@ -30,7 +30,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "14"
+          node-version: "16"
       - name: Build vue-ui
         working-directory: tutorials/api-gateway/vue-ui
         run: yarn && yarn build
